@@ -1,0 +1,1 @@
+{"name": "mvcnn", "batchSize": 8, "num_models": 1000, "lr": 5e-05, "weight_decay": 0.001, "no_pretraining": false, "cnn_name": "resnet18", "num_views": 2, "train_path": "D:\\Python_Projects\\datasetforMVCNN\\modelnet40\\*\\train", "val_path": "D:\\Python_Projects\\datasetforMVCNN\\modelnet40\\*\\test", "train": false}
