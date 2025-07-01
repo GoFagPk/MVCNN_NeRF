@@ -1,4 +1,4 @@
-# MVCNN_NeRF: Fusing Multi-view CNN and Neural Radiance Fields for 3D Object Classification
+# MVCNN_NeRF: Fusing Multi-View and Neural Radiance Features for Spatially-Aware and Robust 3D Object Classification
 
 ## Folder Overview
 
