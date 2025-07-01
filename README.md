@@ -27,11 +27,11 @@ We respectfully acknowledge and reuse the following open-source repositories in 
 
 - NeRF Implementation:  
   [kwea123/nerf_pl](https://github.com/kwea123/nerf_pl)  
-  Licensed under the [MIT License](https://github.com/kwea123/nerf_pl/LICENSE).
+  Licensed under the [MIT License](https://github.com/kwea123/nerf_pl/blob/52aeb387da64a9ad9a0f914ea9b049ffc598b20c/LICENSE).
 
 - MVCNN PyTorch Implementation:  
   [jongchyisu/mvcnn_pytorch](https://github.com/jongchyisu/mvcnn_pytorch)  
-  Licensed under the [MIT License](https://github.com/jongchyisu/mvcnn_pytorch/LICENSE).
+  Licensed under the [MIT License](https://github.com/jongchyisu/mvcnn_pytorch/blob/09a3b5134d92a35da31e4247b20c3c814b41f753/LICENSE).
 
 Please refer to their repositories and licenses for original contributions.
 
