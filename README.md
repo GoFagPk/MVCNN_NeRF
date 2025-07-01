@@ -35,6 +35,10 @@ We respectfully acknowledge and reuse the following open-source repositories in 
 
 Please refer to their repositories and licenses for original contributions.
 
+## Dataset Usage
+
+This project uses a filtered subset of the [ScanObjectNN](https://hkust-vgd.github.io/scanobjectnn/) dataset for training and evaluation.
+
 ## License Notice
 
 This project is released for research and non-commercial use only. All third-party code is acknowledged and redistributed with the original license terms in their respective folders.
