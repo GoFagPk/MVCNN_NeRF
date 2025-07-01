@@ -24,7 +24,7 @@
 
 
 #第一步就是先输入原始照片进行渲染
-#这个是原版，在python里跑不了，下面让ChatGPT帮我优化了一下。
+#这个是原版，在python里跑不了，下面优化了一下。
 # import os
 # # set training configurations here
 # os.environ['ROOT_DIR'] = "/content/drive/MyDrive/NeRF/cat"
@@ -49,7 +49,7 @@
 
 
 
-# 这个是ChatGPT帮我写的，这个没有问题。不过跑之前要用colmap生成相应输入的位姿文件(poses_bounds.npy)
+# 这个没有问题。不过跑之前要用colmap生成相应输入的位姿文件(poses_bounds.npy)
 import subprocess
 
 
@@ -142,80 +142,6 @@ except subprocess.CalledProcessError as e:
 
 
 #下面这个部分是MVCNN
-#源代码：
-#python train_mvcnn.py -name mvcnn -num_models 1000 -weight_decay 0.001 -num_views 12 -cnn_name vgg11
-
-#这个什么multipleprocessing不知道有什么用
-# import multiprocessing
-#
-# if __name__ == '__main__':
-#     multiprocessing.freeze_support()
-
-    # Your code that uses the multiprocessing module here
-    #...
-
-
-
-
-
-
-#学着chatgpt写子进程代码
-# import subprocess
-#
-# data = 'D:\\Python_Projects\\datasetforMVCNN'
-#
-# command = [
-#     'python',
-#     'D:\\Python_Projects\\MVCNN-PyTorch\\controller.py',
-#     data
-#
-# ]
-# subprocess.run(command, check= True)
-
-
-
-#出现了多进程问题，然而好像原来的代码或者是我的环境问题不支持多进程，下面用gpt的意见写的代码，看看行不行：
-
-
-# import os
-# import subprocess
-#
-# data = 'D:\\Python_Projects\\datasetforMVCNN'
-#
-# pid = os.fork()
-#
-# if pid == 0:
-#     # Child process
-#     command = ['python', 'D:\\Python_Projects\\MVCNN-PyTorch\\controller.py', data]
-#     subprocess.run(command, check=True)
-# else:
-#     # Parent process
-#     os.waitpid(pid, 0)
-#不行！！！！！！！！！！！！！！！！！！！！！！！！！！！fork在linux才可以，windows没有。
-
-
-#换这个windows的，gpt写的。
-# import multiprocessing
-# import subprocess
-# import os
-#
-# data = 'D:\\Python_Projects\\datasetforMVCNN'
-#
-# def run_controller():
-#     command = [
-#         'python',
-#         'D:\\Python_Projects\\MVCNN-PyTorch\\controller.py',
-#         data
-#     ]
-#     subprocess.run(command, check=True)
-#
-# if __name__ == '__main__':
-#     # Spawn a new process to run the controller
-#     p = multiprocessing.Process(target=run_controller)
-#     p.start()
-#     p.join()
-
-#放弃 上面这个都是Rberkiland的人的代码，换一个。换jongchyisu。
 
 #下面这个没问题啊
 # import subprocess
@@ -239,32 +165,3 @@ except subprocess.CalledProcessError as e:
 # 目前思路是nerf生成的120个渲染视图作为mvcnn的输入。去对比原来用polygrid物体的多视角视图作为输入有什么结果上的区别，但是这个很难，我用的输入不会有相应的polygrid。
 # 所以就去对比用手机原图作为输入去比对用nerf生成的作为输入有什么区别。
 # 那所以目前nerf的部分不用怎么动，如果后期考虑改进，如果输入方式要更换的话，那也是直接不用nerf了。
-
-
-
-#2023.8.1
-#instant_ngp
-# import subprocess
-#
-# root_dir = "D:\\Users\\Administrator\\Desktop\\mifi_extreme"
-# exp_name = "mifirabbit"
-# batch_size = 64
-# num_epoch = 30
-# lr = 1e-2
-# dataset_name = "colmap"  #没懂具体是干嘛的，但是有5种能选，'nerf', 'nsvf', 'colmap', 'nerfpp', 'rtmv'
-#
-# command = [
-#     'python',
-#     'D:\\Python_Projects\\ngp_pl\\train.py',
-#     '--root_dir', root_dir,
-#     '--exp_name', exp_name,
-#     '--batch_size', str(batch_size),
-#     '--num_epoch', str(num_epoch),
-#     '--lr', str(lr),
-#     '--dataset_name',  dataset_name
-# ]
-#
-# # Run the subprocess command
-# subprocess.run(command, check=True)
-
-
